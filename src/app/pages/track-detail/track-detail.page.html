@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{trackTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item *ngIf="album">
+    <ion-avatar slot="start">
+      <img src="{{album.cover}}">
+    </ion-avatar>
+    <ion-label>
+      <div class="album-title">{{album.title}}</div>
+      <div class="album-fans">Fans: {{album.fans}}</div>
+    </ion-label>
+  </ion-item>
+
+  <ion-list *ngIf="top5Tracks">
+    <ion-item class="title">Top artist tracks</ion-item>
+    <ion-item *ngFor="let track of top5Tracks; index as i">
+      {{i+1}} - {{track.title}}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

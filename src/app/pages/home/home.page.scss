@@ -1,0 +1,24 @@
+
+@media only screen and (max-width: 360px) {
+  .album-title { display: none; }
+}
+
+.searchbar-container {
+  margin: 16px;
+}
+
+.spinner-container {
+  text-align: center;
+}
+
+ion-list {
+  .album-title, .artist-name {
+    font-size: 12px;
+  }
+}
+
+ion-footer {
+  .next-tracks-column {
+    text-align: right;
+  }
+}

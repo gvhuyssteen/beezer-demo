@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Demo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="searchbar-container">
+    <ion-searchbar debounce="500" [(ngModel)]="searchQuery" (ngModelChange)="searchQueryChanged()"></ion-searchbar>
+  </div>
+
+  <div class="spinner-container" *ngIf="loading">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let track of tracks" (click)="openTrackAction(track)">
+      <ion-avatar slot="start">
+        <img src="{{track.album.cover}}">
+      </ion-avatar>
+      <ion-label>
+        <div class="track-title">{{track.title}}</div>
+        <div class="album-title">Album: {{track.album.title}}</div>
+        <div class="artist-name">Artist: {{track.artist.name}}</div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button *ngIf="previousTracks" (click)="getPreviousTracksAction()">Previous</ion-button>
+        </ion-col>
+        <ion-col size="6" class="next-tracks-column">
+          <ion-button *ngIf="nextTracks" (click)="getNextTracksAction()">Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
